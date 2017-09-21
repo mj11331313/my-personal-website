@@ -1,25 +1,66 @@
-body,html{
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html,header{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+header img{
+    display: none;
     width: 100%;
     height: 100%;
 }
-header{
+header .selected{
+    display: block;
+}
+#header-mask{
     width: 100%;
-    padding-top: 638px;
-    background: url("../img/me/1.jpg") no-repeat center;
-    background-size: cover;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+    position: absolute;
+    top: 0;
+}
+header .my-job{
+    position: absolute;
+    width: 52%;
+    top: 40%;
+    left: 50%;
+    color: #fff;
+    font-size: 5vw;
+    font-weight: bolder;
+    line-height: 100%;
+    z-index: 1;
+    transform: translate(-50%,-50%);
+}
+header .my-job span{
+    vertical-align: middle;
+}
+#introduce{
+    width: 62%;
+    display: inline-block;
     overflow: hidden;
+    animation: delete 1s linear forwards;
 }
-header h1{
-    color: #002063;
-    text-align: center;
-    font-size: 3rem;
-    word-spacing: 1rem;
-    letter-spacing: 0.5rem;
-    font-weight: lighter;
-    margin: 1rem auto;
+@keyframes delete {
+    to{
+        width: 0;
+    }
 }
-@media (max-width: 1200px) {
-    header{
-        padding-top: 40%;
+#delete{
+    height: 6vw;
+    width: 1vw;
+    display: inline-block;
+    position: absolute;
+    background: #fff;
+    animation: bling 800ms ease infinite;
+}
+@keyframes bling {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
     }
 }
