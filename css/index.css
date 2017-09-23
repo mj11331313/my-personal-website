@@ -89,3 +89,9 @@ header .my-job span{
 .nav-tabs.nav-justified>li:hover{
     background: transparent;
 }
+#header-mask .nav-justified{
+    position: fixed;
+}
+#header-mask .active a{
+    color: #000;
+}
