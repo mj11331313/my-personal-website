@@ -10,10 +10,8 @@ $(function(){
     };
 
 
-    //å…‰æ ‡é—ªçƒä¿®æ”¹å†…å®¹ï¼š
-    if( $("#introduce")[0].style.width == 0 ){
-        $("#introduce").text("php developer").animate({
-            width:'62%'
-        },1000);
+    //¹â±êÉÁË¸ĞŞ¸ÄÄÚÈİ£º
+    if( $("#introduce")[0].offsetWidth == 0 ){
+        console.log("kong")
     }
 });
