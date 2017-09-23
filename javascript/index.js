@@ -28,6 +28,6 @@ $(function(){
 
     //箭头点击事件处理：
     $("#header-mask .pulse").on("click",function(){
-        
+
     });
 });
