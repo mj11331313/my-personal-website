@@ -83,3 +83,9 @@ header .my-job span{
         transform: scale3d(1, 1, 1);
     }
 }
+.nav-tabs.nav-justified>li>a{
+    color: #fff;
+}
+.nav-tabs.nav-justified>li:hover{
+    background: transparent;
+}
