@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title>Hello|I'm Cynthia</title>
     <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/rotate.css"/>
 </head>
 <body>
     <header>
-        <img src="img/1.jpg" alt=""/>
-        <img src="img/2.jpg" alt=""/>
         <div class="my-job">
             <span>I am</span>
             <span id="introduce">webdesigner</span>
             <span id="delete"></span>
         </div>
+        <div id="photo-container"></div>
     </header>
     <div id="header-mask">
         <ul class="top-nav">
@@ -29,6 +29,7 @@
     </div>
 
     <script src="javascript/jquery-1.12.4.js"></script>
-    <script src="javascript/index.js"></script>
+    <!--<script src="javascript/index.js"></script>-->
+    <script src="javascript/require.js" data-main="javascript/index"></script>
 </body>
 </html>
