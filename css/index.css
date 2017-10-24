@@ -2,15 +2,15 @@
     margin: 0;
     padding: 0;
 }
-body,html,header{
-    width: 100%;
+html,body,.item,.carousel-inner,header,header img{
     height: 100%;
-    position: relative;
 }
-#photo-container{
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
     width: 100%;
     height: 100%;
-    z-index: -1;
+}
+body{
+    overflow: hidden;
 }
 #header-mask{
     width: 100%;
@@ -63,53 +63,44 @@ header .my-job span{
 }
 .pulse{
     position: absolute;
-    width: 2%;
+    width: 3%;
     top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
-    animation: pulse 1s ease infinite;
+    /*animation: jump 2s ease infinite;*/
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
 }
-@keyframes pulse {
-    0% {
-        transform: scale3d(1, 1, 1);
+@keyframes jump {
+    50%{
+        top:60%;
     }
-    50% {
-        transform: scale3d(1.5, 1.5, 1);
+    75%{
+        top: 70%;
     }
-    100% {
-        transform: scale3d(1, 1, 1);
+    100%{
+        top: 65%;
     }
 }
-#header-mask .top-nav li{
-    float: left;
-    width: 25%;
-    background: transparent;
-    color: #fff;
-    font-size: 1.2vw;
-    border-radius: 2%;
-    line-height: 4vw;
-    text-align: center;
-    list-style: none;
-    cursor: pointer;
-}
-#header-mask .top-nav li.active{
-    background: #fff;
-    color: #000;
-}
-#header-mask .top-nav{
-    width: 100%;
+.loading{
     position: fixed;
-}
-#header-mask span{
-    display: block;
-    height: 4vw;
-}
-#middle{
+    z-index: 999;
+    width: 100%;
     height: 100%;
+    background: #000;
+    text-align: center;
+    -webkit-transition: opacity 1s ease; ;
+    -moz-transition: opacity 1s ease;
+    transition: opacity 1s ease;
 }
-@media (max-width: 489px) {
-    #header-mask .top-nav li{
-        clear: both;
-        width: 100%;
-    }
+.load{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
 }
