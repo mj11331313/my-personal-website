@@ -2,16 +2,65 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Hello</title>
-    <script src="javascript/html5shiv.js"></script>
-    <link rel="stylesheet" href="css/normalize.css"/>
+    <title>Hello|I'm Cynthia</title>
+    <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
+    <!--loading:-->
+    <div class="loading container">
+            <svg width="120" height="30" viewbox="0 0 120 30" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                <circle cx="15" cy="15" r="15">
+                    <animate attributename="r" from="15" to="15" begin="0s" dur="0.8s"
+                             values="15;9;15" calcmode="linear" repeatcount="indefinite" />
+                    <animate attributename="fill-opacity" from="1" to="1"
+                             begin="0s" dur="0.8s"
+                             values="1;.5;1" calcmode="linear"
+                             repeatcount="indefinite" />
+                </circle>
+                <circle cx="60" cy="15" r="9" fill-opacity="0.3">
+                    <animate attributename="r" from="9" to="9"
+                             begin="0s" dur="0.8s"
+                             values="9;15;9" calcmode="linear"
+                             repeatcount="indefinite" />
+                    <animate attributename="fill-opacity" from="0.5" to="0.5"
+                             begin="0s" dur="0.8s"
+                             values=".5;1;.5" calcmode="linear"
+                             repeatcount="indefinite" />
+                </circle>
+                <circle cx="105" cy="15" r="15">
+                    <animate attributename="r" from="15" to="15"
+                             begin="0s" dur="0.8s"
+                             values="15;9;15" calcmode="linear"
+                             repeatCount="indefinite" />
+                    <animate attributename="fill-opacity" from="1" to="1"
+                             begin="0s" dur="0.8s"
+                             values="1;.5;1" calcmode="linear"
+                             repeatCount="indefinite" />
+                </circle>
+            </svg>            
+    </div>
     <header>
-        <h1>HI I AM ESTHER</h1>
+        <img class="selected" src="img/1.jpg" alt=""/>
+        <img src="img/2.jpg" alt=""/>
+        <div class="my-job">
+            <span>I am</span>
+            <span id="introduce">webdesigner</span>
+            <span id="delete"></span>
+        </div>
     </header>
+    <div id="header-mask">
+        <img class="pulse" src="img/arrow-down.png" alt=""/>
+    </div>
     <script src="javascript/jquery-1.12.4.js"></script>
     <script src="javascript/index.js"></script>
+    <script>
+        window.onload = function(){
+            var $load = $('.loading');
+            setTimeout(function(){
+                $load.fadeOut();
+            },3000);
+        };
+    </script>
 </body>
 </html>
