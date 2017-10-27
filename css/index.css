@@ -12,6 +12,15 @@ html,body,.item,.carousel-inner,header,header img{
 body{
     overflow: hidden;
 }
+a{
+    color: lightpink;
+    font-weight: bold;
+    font-family: -webkit-pictograph;
+    font-size: 1.7rem;
+}
+a:focus, a:hover{
+    color: #fff;
+}
 #header-mask{
     width: 100%;
     height: 100%;
@@ -25,7 +34,7 @@ header .my-job{
     top: 40%;
     left: 50%;
     color: #fff;
-    font-size: 5vw;
+    font-size: 4rem;
     font-weight: bolder;
     line-height: 100%;
     z-index: 1;
@@ -34,6 +43,7 @@ header .my-job{
 header .my-job span{
     vertical-align: middle;
 }
+/*光标删除效果：*/
 #introduce{
     width: 62%;
     display: inline-block;
@@ -45,6 +55,7 @@ header .my-job span{
         width: 0;
     }
 }
+/*光标闪烁：*/
 #delete{
     height: 6vw;
     width: 1vw;
@@ -61,28 +72,18 @@ header .my-job span{
         opacity: 0;
     }
 }
+/*向下箭头跳动：*/
 .pulse{
     position: absolute;
     width: 3%;
     top: 70%;
     left: 50%;
     transform: translate(-50%,-50%);
-    /*animation: jump 2s ease infinite;*/
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
 }
-@keyframes jump {
-    50%{
-        top:60%;
-    }
-    75%{
-        top: 70%;
-    }
-    100%{
-        top: 65%;
-    }
-}
+/*加载动画背景样式：*/
 .loading{
     position: fixed;
     z-index: 999;
@@ -94,6 +95,7 @@ header .my-job span{
     -moz-transition: opacity 1s ease;
     transition: opacity 1s ease;
 }
+/*加载动画垂直居中：*/
 .load{
     position: absolute;
     left: 50%;
@@ -104,6 +106,13 @@ header .my-job span{
     -o-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
-.nav-pills>li.active>a{
+/*去掉nav的背景色:*/
+.nav-pills>li>a,.nav-pills>li.active>a,.nav-pills>li>a:focus,.nav-pills>li.active>a:focus, .nav-pills>li>a:hover,.nav-pills>li.active>a:hover{
     background-color: transparent;
+}
+.nav>li>a{
+    padding: 12px 15px;
+}
+.nav-pills>li.active{
+    color: #fff;
 }

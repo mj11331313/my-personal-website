@@ -11,4 +11,10 @@ $(function(){
         $nav.removeClass('active');
         $(this).addClass('active');
     });
+
+    //nav点击切换样式：
+    $('#header-mask li').on('click',function(){
+        $(this).siblings().removeClass('active');
+        $(this).addClass('active');
+    })
 });
