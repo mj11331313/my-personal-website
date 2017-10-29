@@ -2,6 +2,18 @@
  * Created by Administrator on 2017/9/19.
  */
 $(function(){
+    //加载动画效果控制:
+    var $none = $('.none');
+    $none.hide();
+    window.onload = function(){
+        var $load = $('.load');
+        var $loading = $('.loading');
+        setTimeout(function(){
+            $load.fadeOut();
+            $loading.hide();
+            $none.show();
+        },6000);
+    };
     //光标闪烁修改内容：
     if( $("#introduce")[0].offsetWidth == 0 ){
         console.log("kong")
