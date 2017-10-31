@@ -5,6 +5,11 @@ $(function(){
     //加载动画效果控制:
     var $none = $('.none');
     $none.hide();
+    //加载动画显示时禁用页面滚动条：
+    $(document.body).css({
+        "overflow-x":"hidden",
+        "overflow-y":"hidden"
+      });
     window.onload = function(){
         var $load = $('.load');
         var $loading = $('.loading');
@@ -12,8 +17,15 @@ $(function(){
             $load.fadeOut();
             $loading.hide();
             $none.show();
+            //加载动画完成后显示页面滚动条：
+            $(document.body).css({
+                "overflow-x":"auto",
+                "overflow-y":"auto"
+              });
+              window.scrollTo(0,0);
         },6000);
     };
+    
     //光标闪烁修改内容：
     if( $("#introduce")[0].offsetWidth == 0 ){
         console.log("kong")
@@ -29,4 +41,5 @@ $(function(){
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
     })
+  
 });
