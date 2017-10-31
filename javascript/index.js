@@ -18,14 +18,14 @@ $(function(){
     if( $("#introduce")[0].offsetWidth == 0 ){
         console.log("kong")
     };
-    var $nav = $('#header-mask .nav-pills a');
+    var $nav = $('#headerMask .nav-pills a');
     $nav.on('click',function(){
         $nav.removeClass('active');
         $(this).addClass('active');
     });
 
     //nav点击切换样式：
-    $('#header-mask li').on('click',function(){
+    $('#headerMask li').on('click',function(){
         $(this).siblings().removeClass('active');
         $(this).addClass('active');
     })
