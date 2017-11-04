@@ -11,6 +11,7 @@ html,body,.item,.carousel-inner,header,header img{
 }
 body{
     background-color: lavenderblush;
+    text-align: center;
 }
 a{
     color: lightpink;
@@ -20,6 +21,12 @@ a{
 }
 a:focus, a:hover{
     color: #fff;
+}
+ul{
+    margin-bottom: 0;
+}
+li{
+    list-style: none;
 }
 #headerMask{
     width: 100%;
@@ -118,14 +125,12 @@ header .my-job span{
 }
 /*about me:*/
 #aboutMe{
-    height: 70%;
-    text-align: center;
     padding: 3% 0;
 }
 #aboutMe p{
     line-height: 2rem;
     letter-spacing: 3px;
-    color: rosybrown;
+    color: saddlebrown;
 }
 #me{
     width: 200px;
@@ -134,4 +139,13 @@ header .my-job span{
     background-image: url(../img/me.jpg);
     background-size: cover;
     margin: 3% auto;
+}
+#projects-filters li{
+    padding: 3% 0;
+}
+#projects-filters li:hover{
+    cursor: pointer;
+}
+#projects-filters li.selected{
+    background-color: lightpink;
 }

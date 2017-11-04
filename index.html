@@ -2,8 +2,9 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Hello|I'm Cynthia</title>
+    <title>Hello | I'm Cynthia</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <script src="javascript/html5shiv.js"></script>
     <link rel="stylesheet" href="css/animate.css"/>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/index.css"/>
@@ -70,18 +71,36 @@
     </div>
     <div id="aboutMe">
         <div class="container">
-            <h2>I AM CYNTHIA</h2>
+            <h2>I am Cynthia</h2>
             <div id="me"></div>
             <p>
                 HI, I'M CYNTHIA, I MAJORED IN INFORMATION MANAGEMENT AND INFORMATION SYSTEM IN THE UNDERGRADUATE COURSE.I MAJORED IN INFORMATION MANAGEMENT AND INFORMATION SYSTEM IN THE UNDERGRADUATE COURSE.I MAJORED IN INFORMATION MANAGEMENT AND INFORMATION SYSTEM IN THE UNDERGRADUATE COURSE.
             </p>
-            <h2>SKILLS</h2>
-            <div class="col-md-3 col-sm-6 col-xs-12">
+            <h2>Skills</h2>
+            <!-- <div class="col-md-3 col-sm-6 col-xs-12">
+            </div> -->
+        </div>
+    </div>
+    <div id="projects">
+        <div class="container">
+            <h2>Look My Projects</h2>
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                <ul id="projects-filters" class="row"> 
+                    <li class="filter active col-xs-6 col-sm-3 col-md-3 selected" data-filter="all">ALL</li>
+                    <li class="filter col-xs-6 col-sm-3 col-md-3" data-filter="photo">WEBSITE</li>
+                    <li class="filter col-xs-6 col-sm-3 col-md-3" data-filter="photoshop">APP</li>
+                    <li class="filter col-xs-6 col-sm-3 col-md-3" data-filter="illustrator">OTHERS</li>
+                </ul>
+            </div>
+        </div>
+        <div id="photo-wall">
+            <div class="container">
+                
             </div>
         </div>
     </div>
     <script src="javascript/jquery-1.12.4.js"></script>
+    <script src="javascript/require.js" data-main="javascript/index"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="javascript/index.js"></script>
 </body>
 </html>
