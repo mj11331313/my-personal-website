@@ -29,7 +29,7 @@ $(function(){
         let $loading = $('.loading');
         setTimeout(function(){
             $load.fadeOut();
-            $loading.hide();
+            $loading.fadeOut();
             $none.show();
             //加载动画完成后显示页面滚动条：
             $(document.body).css({
@@ -74,7 +74,7 @@ $(function(){
     //照片墙动态生成每一个div:
     let NUM = 8;
     var count = 0;
-    var $Project = $("#photo-wall .container");
+    let $Project = $("#photo-wall .container");
        //预加载图片：
     for(let i=0;i< NUM; i++ ){
         let $img = new Image();
@@ -89,13 +89,15 @@ $(function(){
         //加载完成后：
     function loadSuccess(){
         for( let i = 0 ; i < NUM ; i++){
-            let $div = document.createElement("div");
+            let $li = document.createElement("li");
+            let $a = document.createElement("a");
+            let $image = new Image();
             let $span = document.createElement("span");
-            $($div).css({
-                backgroundImage:"../img/projects/"+ (i+1) +".jpg)"
-            });
-            $Project.append($div);
-            $($div).append($span);
+            $li.addClass("col-md-3 col-sm-3 col-xs-12");
+            $image.src = "../img/projects/" + (i+1) +".jpg";
+            $Project.append($li);
+            $($li).append($a).append($span);
+            $($a).append($image);
         }
     }
 });
