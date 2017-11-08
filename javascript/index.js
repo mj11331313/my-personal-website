@@ -15,7 +15,6 @@ require(["jquery","svg"],function($,Svg){
     $Svg = new Svg(setting);
     $Svg.add();
 });
-$(function(){
     //加载动画效果控制:
     let $none = $('.none');
     $none.hide();
@@ -74,30 +73,29 @@ $(function(){
     //照片墙动态生成每一个div:
     let NUM = 8;
     var count = 0;
-    let $Project = $("#photo-wall .container");
+    var $Project = $("#photo-wall .container");
        //预加载图片：
     for(let i=0;i< NUM; i++ ){
         let $img = new Image();
-        $img.onload = function(){
-            count++;
-            if(count == NUM){
-                loadSuccess();
-            }
+        let $li = document.createElement("li");
+        let $a = document.createElement("a");
+        let $span = document.createElement("span");
+        $($img).prop("src","../img/projects/" + (i+1) +".jpg");
+        $($li).addClass("col-md-3 col-sm-6 col-xs-12");
+        $Project.append($li);
+        $($li).append($a).append($span);
+        $($a).append($img);        
         };
-        $img.src = "../img/projects/" + (i+1) +".jpg";
-    };
-        //加载完成后：
-    function loadSuccess(){
-        for( let i = 0 ; i < NUM ; i++){
-            let $li = document.createElement("li");
-            let $a = document.createElement("a");
-            let $image = new Image();
-            let $span = document.createElement("span");
-            $li.addClass("col-md-3 col-sm-3 col-xs-12");
-            $image.src = "../img/projects/" + (i+1) +".jpg";
-            $Project.append($li);
-            $($li).append($a).append($span);
-            $($a).append($image);
-        }
-    }
-});
+
+
+
+    $("#me>span").hover(function(){
+        $(this).animate({
+            opcity:1
+        },500)
+    },function(){
+        $(this).animate({
+            opcity:0
+        },500)
+    })
+

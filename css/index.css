@@ -139,19 +139,41 @@ header .my-job span{
     background-image: url(../img/me.jpg);
     background-size: cover;
     margin: 3% auto;
+    position: relative;
+}
+#me>span{
+    opacity: 0;
+    display: block;
+    height: 200px;
+    width: 100%;
+    line-height: 230px;
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 3.5rem;
+    color: deepskyblue;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 50%;
 }
 #projects-filters li{
     padding: 3% 0;
+    border-radius: 2%;
 }
 #projects-filters li:hover{
     cursor: pointer;
 }
 #projects-filters li.selected{
     background-color: lightpink;
+    color: #fff;
 }
 
 
 /* photo wall: */
+#photo-wall{
+    height: 30rem;
+    padding: 5px;
+}
 #photo-wall span{
     display: block;
     z-index: 5;
