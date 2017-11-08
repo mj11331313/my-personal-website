@@ -97,5 +97,11 @@ require(["jquery","svg"],function($,Svg){
         $(this).animate({
             opcity:0
         },500)
+    });
+
+
+    //导航菜单切换后点击按钮显示或隐藏菜单：
+    $("#changeNav button").on("click",function(){
+        $("#headerMask nav").stop().slideToggle();
     })
 
