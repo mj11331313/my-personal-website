@@ -103,5 +103,20 @@ require(["jquery","svg"],function($,Svg){
     //导航菜单切换后点击按钮显示或隐藏菜单：
     $("#changeNav button").on("click",function(){
         $("#headerMask nav").stop().slideToggle();
-    })
+    });
+
+
+
+    //点击向下的箭头页面向下滑动：
+    var $sTop=$("#aboutMe")[0].offsetTop;
+    $("img.pulse").on("click",function(){
+        var $bTop=$(window).scrollTop();    
+        var timer=setInterval(function(){
+            window.scrollTo( 0,$bTop +=50 ) ;
+             if( $bTop >= $sTop ){
+                 clearInterval(timer);
+             };
+         },50);
+    });
+
 
