@@ -91,8 +91,9 @@ require(["jquery","svg"],function($,Svg){
 
 
     //导航菜单切换后点击按钮显示或隐藏菜单：
+    let $topNav = $("#topNav nav");
     $("#changeNav .glyphicon").on("click",function(){
-        $("#headerMask nav").stop().slideToggle();
+        $topNav.stop().slideToggle();
     });
 
 
