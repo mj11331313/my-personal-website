@@ -71,33 +71,23 @@ require(["jquery","svg"],function($,Svg){
     });
 
     //照片墙动态生成每一个div:
-    let NUM = 8;
+    var NUM = 8;
     var count = 0;
     var $Project = $("#photo-wall .container");
        //预加载图片：
-    for(let i=0;i< NUM; i++ ){
-        let $img = new Image();
-        let $li = document.createElement("li");
-        let $a = document.createElement("a");
-        let $span = document.createElement("span");
-        $($img).prop("src","../img/projects/" + (i+1) +".jpg");
+    for(var i=0;i< NUM; i++ ){
+        var $img = new Image();
+        var $li = document.createElement("li");
+        var $a = document.createElement("a");
+        var $span = document.createElement("span");
+        $img.src="../img/projects/"+ (i+1) +".jpg";
+        // $($img).attr("src","../img/projects/" + (i+1) +".jpg");
         $($li).addClass("col-md-3 col-sm-6 col-xs-12");
         $Project.append($li);
         $($li).append($a).append($span);
         $($a).append($img);        
-        };
+    };
 
-
-
-    $("#me>span").hover(function(){
-        $(this).animate({
-            opcity:1
-        },500)
-    },function(){
-        $(this).animate({
-            opcity:0
-        },500)
-    });
 
 
     //导航菜单切换后点击按钮显示或隐藏菜单：
@@ -118,5 +108,17 @@ require(["jquery","svg"],function($,Svg){
              };
          },50);
     });
+
+
+    //点击我的照片播放或暂停音乐：
+    var bFlag="true";
+    $("#me").on("click",function(){
+        if(bFlag){
+            $("#vedio")[0].play();
+        }else{
+            $("#vedio")[0].pause();
+        };
+        bFlag=!bFlag;
+    })
 
 

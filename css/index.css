@@ -170,7 +170,13 @@ header .my-job span{
     margin: 3% auto;
     position: relative;
 }
-#me>span{
+#me:hover #hello{
+    opacity: 1;
+    -webkit-transition: all 1s linear;
+    -moz-transition: all 1s linear;
+    transition: all 1s linear;
+}
+#hello{
     opacity: 0;
     display: block;
     height: 200px;
@@ -180,7 +186,7 @@ header .my-job span{
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 3.5rem;
+    font-size: 1.7rem;
     color: deepskyblue;
     background-color: rgba(0,0,0,.5);
     border-radius: 50%;
