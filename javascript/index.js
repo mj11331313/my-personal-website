@@ -91,7 +91,7 @@ require(["jquery","svg"],function($,Svg){
 
 
     //导航菜单切换后点击按钮显示或隐藏菜单：
-    $("#changeNav button").on("click",function(){
+    $("#changeNav .glyphicon").on("click",function(){
         $("#headerMask nav").stop().slideToggle();
     });
 
@@ -111,6 +111,7 @@ require(["jquery","svg"],function($,Svg){
 
 
     //点击我的照片播放或暂停音乐：
+    var $hello=$("#hello");
     var bFlag="true";
     $("#me").on("click",function(){
         if(bFlag){
@@ -119,6 +120,20 @@ require(["jquery","svg"],function($,Svg){
             $("#vedio")[0].pause();
         };
         bFlag=!bFlag;
-    })
+        if(bFlag){
+            $hello.text("click here to play music");
+        }else{
+            $hello.text("click here to stop music");
+        };
+    });
+    
+
+    //鼠标滑过我的照片时：
+    $("#me").hover(function(){
+        $hello.stop().css("opacity",1);
+    },function(){
+        $hello.stop().css("opacity",0);
+    });
+    
 
 
