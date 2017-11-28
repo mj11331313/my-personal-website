@@ -226,3 +226,21 @@ header .my-job span{
     opacity: 0;
     transition: all 1s ease;
 }
+#photo-wall .container li{
+    padding: .3rem;
+}
+#photo-wall .container li a{
+    display: block;
+    width: 100%;
+    position: relative;
+}
+#photo-wall .container li img{
+    width: 100%;
+}
+#photo-wall .container li .x-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
