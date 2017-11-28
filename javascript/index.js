@@ -77,23 +77,36 @@ require(["jquery","svg"],function($,Svg){
        //预加载图片：
     for(var i=0;i< NUM; i++ ){
         var $img = new Image();
+        var $img2 = new Image();
         var $li = document.createElement("li");
         var $a = document.createElement("a");
-        var $span = document.createElement("span");
-        $img.src="../img/projects/"+ (i+1) +".jpg";
-        // $($img).attr("src","../img/projects/" + (i+1) +".jpg");
-        $($li).addClass("col-md-3 col-sm-6 col-xs-12");
+        $img.src="img/projects/"+ (i+1) +".jpg";
+        $img2.src="img/projects2/"+ (i+1) +".jpg";
+        $($li).addClass("col-md-3 col-sm-4 col-xs-6");
+        $($img2).addClass("x-mask");
         $Project.append($li);
-        $($li).append($a).append($span);
-        $($a).append($img);        
+        $($li).append($a);
+        $($a).append($img2).append($img);        
     };
 
 
 
     //导航菜单切换后点击按钮显示或隐藏菜单：
     let $topNav = $("#topNav nav");
+    let $change=false;//标示位：改变图标
     $("#changeNav .glyphicon").on("click",function(){
         $topNav.stop().slideToggle();
+        if($change){
+            $(this).removeClass("glyphicon-align-justify").addClass("glyphicon-arrow-up").animate({
+                "transform": "rotate(45deg)",
+                "transition":"1s"//过渡效果存在问题
+            })            
+        }else{
+            $(this).removeClass("glyphicon-arrow-up").addClass("glyphicon-align-justify").animate({
+                "transform": "rotate(-45deg)"                      
+            })
+        };
+        $change=!$change;
     });
 
 
@@ -135,6 +148,21 @@ require(["jquery","svg"],function($,Svg){
     },function(){
         $hello.stop().css("opacity",0);
     });
-    
+
+
+    //鼠标离开项目图片时：
+    /* $("#photo-wall .container li a").hover(function(){
+        console.log(this);
+        $(this + " .x-mask").stop().fadeOut();
+    },function(){
+        $(this + " .x-mask").stop().fadeIn();
+    }) */
+
+    $(".x-mask").on("mouseover",function(){
+        $(this).stop().fadeOut();
+    });
+    $("#photo-wall .container li img").on("mouseout",function(){
+        $(this).siblings(".x-mask").stop().fadeIn();
+    })
 
 
