@@ -165,4 +165,3 @@ require(["jquery","svg"],function($,Svg){
         $(this).siblings(".x-mask").stop().fadeIn();
     })
 
-
