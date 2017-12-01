@@ -90,34 +90,18 @@ header .my-job{
 header .my-job span{
     vertical-align: middle;
 }
-/*光标删除效果：*/
-#introduce{
+/*我的标签效果：*/
+.introduce{
     width: 62%;
-    display: inline-block;
+    display: none;
     overflow: hidden;
-    animation: delete 1s linear forwards;
 }
-@keyframes delete {
-    to{
-        width: 0;
-    }
-}
-/*光标闪烁：*/
-#delete{
-    height: 100%;
-    width: 0.5rem;
+.introduce.zoomOutLeft{
     display: inline-block;
-    position: absolute;
-    background: #fff;
-    animation: bling 800ms ease infinite;
-}
-@keyframes bling {
-    from{
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
-    }
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
 }
 /*向下箭头跳动：*/
 .pulse{
