@@ -39,15 +39,8 @@ require(["jquery","svg"],function($,Svg){
         },6000);
     };
     
-    //光标闪烁修改内容：
-    if( $("#introduce")[0].offsetWidth == 0 ){
-        console.log("kong")
-    };
-    let $nav = $('#headerMask .nav-pills a');
-    $nav.on('click',function(){
-        $nav.removeClass('active');
-        $(this).addClass('active');
-    });
+    //我的标签样式：
+    
 
     //nav点击切换样式：
     $('#headerMask li').on('click',function(){
@@ -64,11 +57,15 @@ require(["jquery","svg"],function($,Svg){
         $container.append($Div);
     }
 
+
+    
     //skill导航点击样式：
     $("#projects-filters li").on("click",function(){
         $(this).siblings().removeClass('selected');
         $(this).addClass('selected');
     });
+
+
 
     //照片墙动态生成每一个div:
     var NUM = 8;
@@ -150,13 +147,6 @@ require(["jquery","svg"],function($,Svg){
     });
 
 
-    //鼠标离开项目图片时：
-    /* $("#photo-wall .container li a").hover(function(){
-        console.log(this);
-        $(this + " .x-mask").stop().fadeOut();
-    },function(){
-        $(this + " .x-mask").stop().fadeIn();
-    }) */
 
     $(".x-mask").on("mouseover",function(){
         $(this).stop().fadeOut();
