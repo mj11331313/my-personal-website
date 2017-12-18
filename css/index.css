@@ -168,7 +168,7 @@ section {
     right: 0;
     opacity: .8;
     background-image:url('../img/top-mytree.png');
-    background-size: 100% 100%;
+    /* background-size: 100% 100%; */
     background-repeat: repeat-x;
     background-position: center bottom;
 }
@@ -230,7 +230,8 @@ section {
 
 #D {
     background-color: rgb(255, 181, 181);
-    padding: .3rem;
+    padding: .2rem;
+    overflow: hidden;
 }
 
 
@@ -319,17 +320,21 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
+    background: #000;
+    opacity: .5;
 }
 #C .row{
     margin: 0;
-    margin-top: .3rem;
 }
 #nav-projects{
     margin-left: 0;
+    width: 71%;
+    background: antiquewhite;
+    padding: 0;
 }
 #projects-filters li{
-    padding: 3% 0;
-    font-size: .3rem;
+    padding: 2% 0;
+    font-size: .25rem;
     text-align: center;
 }
 #projects-filters li:hover{
@@ -347,6 +352,9 @@ section {
 form input,form button{
     height: .7rem;
     position: relative;
+}
+form button{
+    margin-bottom: .5rem;
 }
 form button:hover{
     background: rgba(221, 160, 221,.8);
@@ -376,3 +384,126 @@ form input,form button,textarea{
     background: url('../img/envelope.png') no-repeat center;
     background-size: contain;
 }
+#con-photo{
+    height: 1.5rem;
+    overflow: hidden;
+}
+#con-photo img{
+    border-style: none;
+    width: 1.5rem;
+    height: inherit;
+}
+#con-photo>div{
+    height: inherit;
+}
+#con-photo>div:first-child{
+    position: absolute;
+    left: 40%;
+}
+#con-photo>div:last-child{
+    position: absolute;
+    right: 40%;
+}
+#hide-first{
+    left: 2.95rem;
+}
+.hide-img{
+    width: 20%;
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+#hide-last{
+    right: 2.95rem;
+}
+.show-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0;
+    filter: alpha(opacity = 0)
+}
+.beat-char {
+    line-height: 2em;
+    position: relative;
+	display: inline-block;
+	background: transparent;
+
+}
+
+.rotate{
+	transform:rotate(360deg) ;
+	-ms-transform:rotate(360deg); 	/* IE 9 */
+	-moz-transform:rotate(360deg); 	/* Firefox */
+	-webkit-transform:rotate(360deg); /* Safari 和 Chrome */
+	-o-transform:rotate(360deg);
+	-webkit-transition-duration: 0.7s;
+
+}
+
+@-webkit-keyframes load {
+    0% {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes load {
+    0% {
+      stroke-dashoffset: 0;
+    }
+  }
+.progress {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    text-align: center;
+    height: inherit;
+    background-color: transparent;
+    overflow: inherit;
+  }
+  .progress > li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-family: Lato;
+    margin: 1rem;
+  }
+  .progress > li:before {
+    content: attr(data-name);
+    position: absolute;
+    width: 100%;
+    bottom: -.7rem;
+    font-weight: 400;
+    font-size: .4rem;
+  }
+  .progress > li:after {
+    content: attr(data-percent);
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    left: 0;
+    font-size: .7rem;
+    text-align: center;
+  }
+  .progress svg {
+    width: 4rem;
+    height: 4rem;
+  }
+  .progress svg:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+  }
+  .progress svg:nth-child(2) path {
+    fill: none;
+    stroke-width: 25;
+    stroke-dasharray: 629;
+    stroke: rgb(255, 151, 151);
+    opacity: .9;
+    -webkit-animation: load 10s;
+            animation: load 10s;
+  }

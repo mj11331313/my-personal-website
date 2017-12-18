@@ -160,6 +160,29 @@ $("#A")[0].onmousemove = function (e) {
 	}, 100);
 }
 
+/* $("#A").on("touchstart", function(e) {
+	var touch = event.targetTouches[0];
+	startPos = {x:touch.pageX,y:touch.pageY,time:+new Date};
+	e.preventDefault();
+	$(this).on("touchmove",function(e){
+		endPos = {x:touch.pageX - startPos.x,y:touch.pageY - startPos.y};
+		isScrolling = Math.abs(endPos.x) < Math.abs(endPos.y) ? 1:0;
+		if(isScrolling != 1){
+			// e.preventDefault(); //阻止触摸事件的默认行为，即阻止滚屏
+			mouseX = e.originalEvent.changedTouches[0].pageX;
+			mouseY = e.originalEvent.changedTouches[0].pageY;
+			clearInterval(mouseMoveChecker);
+			mouseMoveChecker = setTimeout(function () {
+				mouseMoving = true;
+			}, 100);
+		};
+		$(this).on('touchend',function(){
+			mouseMoveChecker = setTimeout(function () {
+				mouseMoving = false;
+			}, 100);
+		})
+	});
+}); */
 
 function drawIfMouseMoving() {
 	if (!mouseMoving) return;

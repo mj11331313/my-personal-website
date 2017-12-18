@@ -19,17 +19,9 @@ window.onload = function(){
         });
     },7500);
 }
-
-$("#A")[0].oncontextmenu = function(){
+$("#A")[0].oncontextmenu = $('#slogan')[0].oncontextmenu = function(){
     $(document).trigger('contextmenu');
 };
-
-$('#A')[0].onselectstart = function(){
-    return false;
-};
-
-// 鼠标按下并移动也会有连线成星的效果，待解决！
-
 function scrollHide(){
     $(document.body).css({
         "overflow-x":"hidden",
@@ -215,45 +207,26 @@ let ScrollManager = (function () {
         },
 });
 
+$("#projects-filters li").on("click",function(){
+    $(this).siblings().removeClass('selected');
+    $(this).addClass('selected');
+});
 
 let NUM = 8;
 let count = 0;
 let $Project = $("#photo-wall .container");
-let $all = [] , $websites = [], $apps = [], $others = [];
 for(let i=0;i< NUM; i++ ){
     let $img = new Image();
     let $li = document.createElement("li");
     let $a = document.createElement("a");
     let $img2 = document.createElement("div");    
-    $img.src="img/"+ (i+1) +".jpg";
+    $img.src="img/projects/"+ (i+1) +".jpg";
     $($li).addClass("col-md-3 col-sm-4 col-xs-6");
     $($img2).addClass("x-mask");
     $Project.append($li);
     $($li).append($a);
-    $($a).append($img2).append($img);
-    $all.push($li);    
-    if( i == 0 || i == 3 || i == 4 ){
-        $websites.push($li);
-    }else if( i == 1 || i == 2 ){
-        $apps.push($li);
-    }else{
-        $others.push($li);
-    }     
+    $($a).append($img2).append($img);        
 };
-
-let $flag , $ulPrent = $('#photo-wall .container');
-$("#projects-filters li").on("click",function(){
-    $(this).siblings().removeClass('selected');
-    $(this).addClass('selected');
-    $ulPrent.children('li').detach();
-    $flag = $(this).index();
-    switch ($flag) {
-        case 1 : $ulPrent.append($websites); break;
-        case 2 : $ulPrent.append($apps); break;
-        case 3 : $ulPrent.append($others); break;
-        default: $ulPrent.append($all);
-    }
-});
 
 $(".x-mask").hover(function(){
     imgHide($(this));
