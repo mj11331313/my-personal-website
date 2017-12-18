@@ -71,7 +71,7 @@ Dot.prototype.link = function () {
 function getPreviousDot(id, stepback) {
 	if (id == 0 || id - stepback < 0) return false;
 	if (typeof dots[id - stepback] != "undefined") return dots[id - stepback];
-	else return false; //getPreviousDot(id - stepback);
+	else return false;
 }
 
 Dot.prototype.move = function () {
@@ -114,12 +114,13 @@ init();
 window.onresize = function(){
 	setCanvasSize();
 };
+
 function setCanvasSize() {
 	WIDTH = document.documentElement.clientWidth,
-		HEIGHT = document.documentElement.clientHeight;
-
-	canvas.setAttribute("width", WIDTH);
-	canvas.setAttribute("height", HEIGHT);
+	HEIGHT = document.documentElement.clientHeight;
+	
+	canvas.setAttribute('width',WIDTH);
+	canvas.setAttribute('height',HEIGHT);
 }
 
 function init() {
@@ -127,7 +128,6 @@ function init() {
 	ctx.shadowColor = "white";
 	for (var i = 0; i < initStarsPopulation; i++) {
 		stars[i] = new Star(i, Math.floor(Math.random() * WIDTH), Math.floor(Math.random() * HEIGHT));
-		//stars[i].draw();
 	}
 	ctx.shadowBlur = 0;
 	animate();
@@ -159,6 +159,7 @@ $("#A")[0].onmousemove = function (e) {
 		mouseMoving = false;
 	}, 100);
 }
+
 
 function drawIfMouseMoving() {
 	if (!mouseMoving) return;
