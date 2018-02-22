@@ -203,7 +203,7 @@ section {
 #slogan {
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: bold;
     width: 55vw;
     line-height: 100%;
@@ -238,7 +238,7 @@ section {
 .Scroll-to-top {
     width: 1.2rem;
     position: fixed;
-    right: .2rem;
+    right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.2);
     border: none;
@@ -310,18 +310,10 @@ section {
     display: block;
     position: relative;
 }
-#photo-wall .container li img{
+#photo-wall .container img{
     width: 100%;
-    box-shadow: 5px 6px 10px lightcoral;
-}
-#photo-wall .container li .x-mask{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #000;
-    opacity: .5;
+    filter: grayscale(100%);
+    transition: all 1s ease;
 }
 #C .row{
     margin: 0;
@@ -386,23 +378,25 @@ form input,form button,textarea{
 }
 #con-photo{
     height: 1.5rem;
-    overflow: hidden;
+    position: relative;
+    text-align: center;
 }
 #con-photo img{
     border-style: none;
     width: 1.5rem;
     height: inherit;
 }
-#con-photo>div{
+#con-logo{
     height: inherit;
-}
-#con-photo>div:first-child{
+    width: 5rem;
     position: absolute;
-    left: 40%;
+    left: 50%;
+    transform: translateX(-50%);
 }
-#con-photo>div:last-child{
-    position: absolute;
-    right: 40%;
+#con-logo>div{
+    display: inline-block;
+    position: relative;
+    height: inherit;
 }
 #hide-first{
     left: 2.95rem;
@@ -412,6 +406,8 @@ form input,form button,textarea{
     position: absolute;
     bottom: 0;
     display: none;
+    /* opacity: 1; */
+    /* visibility: hidden; */
 }
 #hide-last{
     right: 2.95rem;
