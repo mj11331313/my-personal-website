@@ -16,12 +16,19 @@ window.onload = function(){
                 "transitionDelay":500
             });
             scrollShow();
+            $("#projects-filters li:eq(0)").trigger('click');
         });
     },7500);
 }
-$("#A")[0].oncontextmenu = $('#slogan')[0].oncontextmenu = function(){
+
+$("#A")[0].oncontextmenu = function(){
     $(document).trigger('contextmenu');
 };
+
+$('#A')[0].onselectstart = function(){
+    return false;
+};
+
 function scrollHide(){
     $(document.body).css({
         "overflow-x":"hidden",
@@ -36,9 +43,9 @@ function scrollShow(){
 }
 function throttle(fn, delay, scope) {
     delay = delay || 250;
-    let last, defer;
+    var last, defer;
     return function () {
-        let context = scope || this,
+        var context = scope || this,
             now = +new Date(),
             args = arguments;
         if (last && now < last + delay) {
@@ -55,7 +62,7 @@ function throttle(fn, delay, scope) {
 }
 
 function extend(destination, source) {
-    for (let k in source) {
+    for (var k in source) {
         if (source.hasOwnProperty(k)) {
             destination[k] = source[k];
         }
@@ -63,9 +70,9 @@ function extend(destination, source) {
     return destination;
 }
 
-let ScrollManager = (function () {
+var SManager = (function () {
 
-    let defaults = {
+    var defaults = {
 
         steps: null,
         navigationContainer: null,
@@ -80,8 +87,8 @@ let ScrollManager = (function () {
         onScroll: null,
 
         onStepChange: function (step) {
-            let self = this;
-            let relativeLink = [].filter.call(options.links, function (link) {
+            var self = this;
+            var relativeLink = [].filter.call(options.links, function (link) {
                 link.classList.remove(self.currentStepClass);
                 return link.hash === '#' + step.id;
             });
@@ -97,7 +104,7 @@ let ScrollManager = (function () {
 
     options = {};
 
-    let _animation = null,
+    var _animation = null,
         currentStep = null,
         throttledGetScrollPosition = null;
 
@@ -141,12 +148,12 @@ let ScrollManager = (function () {
     },
 
     scrollPercentage: function () {
-        let body = document.body,
+        var body = document.body,
             html = document.documentElement,
             documentHeight = Math.max(body.scrollHeight, body.offsetHeight,
                 html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-        let percentage = Math.round(this.scrollPosition / (documentHeight - window.innerHeight) * 100);
+        var percentage = Math.round(this.scrollPosition / (documentHeight - window.innerHeight) * 100);
         if (percentage < 0)  percentage = 0;
         if (percentage > 100)  percentage = 100;
         return percentage;
@@ -156,7 +163,7 @@ let ScrollManager = (function () {
         if (e.target.nodeName === 'A') {
             e.preventDefault();
             if (location.pathname.replace(/^\//, '') === e.target.pathname.replace(/^\//, '') && location.hostname === e.target.hostname) {
-                let targetStep = document.querySelector(e.target.hash);
+                var targetStep = document.querySelector(e.target.hash);
                 targetStep ? _animation(targetStep) : console.warn('Hi! You should give an animation callback function to the Scroller module! :)');
             }
         }
@@ -167,10 +174,10 @@ let ScrollManager = (function () {
     },
 
     checkActiveStep: function () {
-        let scrollPosition = this.scrollPosition;
+        var scrollPosition = this.scrollPosition;
 
         [].forEach.call(options.steps, function (step) {
-            let bBox = step.getBoundingClientRect(),
+            var bBox = step.getBoundingClientRect(),
                 position = step.offsetTop,
                 height = position + bBox.height;
 
@@ -192,41 +199,59 @@ let ScrollManager = (function () {
     })();
 
 
-    let scrollToTopBtn = document.querySelector('.Scroll-to-top'),
+    var scrollToTopBtn = document.querySelector('.Scroll-to-top'),
         steps = document.querySelectorAll('.js-scroll-step'),
         navigationContainer = document.querySelector('.Quick-navigation'),
         links = navigationContainer.querySelectorAll('a');
-        ScrollManager.init({
+        SManager.init({
             steps: steps,
             scrollToTopBtn: scrollToTopBtn,
             navigationContainer: navigationContainer,
             links: links,
             onScroll: function () {
-                let percentage = ScrollManager.scrollPercentage();
+                var percentage = SManager.scrollPercentage();
                 percentage >= 90 ? scrollToTopBtn.classList.add('visible') : scrollToTopBtn.classList.remove('visible');
         },
 });
 
-$("#projects-filters li").on("click",function(){
-    $(this).siblings().removeClass('selected');
-    $(this).addClass('selected');
-});
 
-let NUM = 8;
-let count = 0;
-let $Project = $("#photo-wall .container");
-for(let i=0;i< NUM; i++ ){
+var NUM = 8;
+var $Projects = $("#photo-wall .container");
+var $all = [] , $websites = [], $apps = [], $others = [];
+for(var i=0;i< NUM; i++ ){
     let $img = new Image();
     let $li = document.createElement("li");
     let $a = document.createElement("a");
     let $img2 = document.createElement("div");    
-    $img.src="img/projects/"+ (i+1) +".jpg";
+    $img.src="img/"+ (i+1) +".jpg";
     $($li).addClass("col-md-3 col-sm-4 col-xs-6");
     $($img2).addClass("x-mask");
-    $Project.append($li);
+    $Projects.append($li);
     $($li).append($a);
-    $($a).append($img2).append($img);        
+    $($a).append($img2).append($img);
+    $all.push($li);    
+    if( i == 0 || i == 3 || i == 4 ){
+        $websites.push($li);
+    }else if( i == 1 || i == 2 ){
+        $apps.push($li);
+    }else{
+        $others.push($li);
+    }     
 };
+
+$ulPrent = $('#photo-wall .container');
+$("#projects-filters li").on("click",function(){
+    $(this).siblings().removeClass('selected');
+    $(this).addClass('selected');
+    $ulPrent.children('li').detach();
+    let $flag = $(this).index();
+    switch ($flag) {
+        case 1 : $ulPrent.append($websites); break;
+        case 2 : $ulPrent.append($apps); break;
+        case 3 : $ulPrent.append($others); break;
+        default: $ulPrent.append($all);
+    }
+});
 
 $(".x-mask").hover(function(){
     imgHide($(this));
@@ -238,28 +263,33 @@ $("#submit").on("click",function(){
     return false;
 })
 
-$('.show-img').eq(0).hover(function(){
+/* $('.show-img').eq(0).hover(function(){
     $('#hide-first').stop().fadeIn();
-    imgShow($(this));
+    $('.hide-img').eq(0).show();
 },function(){
     $('#hide-first').stop().fadeOut();
-    imgHide($(this));
-})
+    $('.hide-img').eq(0).hide();
+});
 $('.show-img').eq(1).hover(function(){
     $('#hide-last').stop().fadeIn();
-    imgShow($(this));
+    $('.hide-img').eq(1).show();
 },function(){
     $('#hide-last').stop().fadeOut();
-    imgHide($(this));
+    $('.hide-img').eq(1).hide();
+}) */
+$('.show-img').each(function(index,elem){
+    $(this).hover(function(){
+        $('.hide-img').eq(index).stop().toggle();
+    })
 })
 function imgShow(obj){
     obj.stop().animate({
-        'opacity':.5
+        opacity: .5
     },500);
 }
 function imgHide(obj){
     obj.stop().animate({
-        'opacity':0
+        opacity: 0
     },500);
 }
 
