@@ -264,10 +264,9 @@ $("#submit").on("click",function(){
 
 $('.show-img').each(function(index,elem){
     $(this).hover(function(){
-        $('.hide-img').eq(index).stop().fadeIn();
+        $('.hide-img').eq(index).stop().css('opacity',1);
     },function(){
-        $('.hide-img').eq(index).stop().fadeOut();
+        $('.hide-img').eq(index).stop().css('opacity',0);
     })
 })
-
 
