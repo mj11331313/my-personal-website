@@ -200,14 +200,31 @@ section {
     background: linear-gradient(to bottom, #000000 0%, #204fbd 100%);
 }
 
+@font-face{  
+    font-family: GeosansLight;  
+    src:url('../css/GeosansLight.ttf');  
+} 
+@font-face{  
+    font-family: Chinese;  
+    src:url('../css/handan.ttf');  
+} 
 #slogan {
     text-align: center;
     color: rgb(255, 255, 255);
-    font-size: .8rem;
+    font-size: 1.1rem;
+    font-family: GeosansLight;
     font-weight: bold;
     width: 55vw;
+    word-spacing: .2rem;
     line-height: 100%;
-    border-bottom: 2px solid rgb(255, 117, 117);
+}
+#en-introduce{
+    font-family: GeosansLight;
+    font-size: .45rem;
+}
+#ch-introduce{
+    font-size: .47rem;
+    font-family: Chinese;
 }
 
 #slogan span {
@@ -286,9 +303,9 @@ section {
 }
 #en-introduce,#ch-introduce{
     margin: .5rem .4rem;
-    font-size: .35rem;
     padding: .4rem;
     word-spacing: .1rem;
+    color: #000;
 }
 #photo-wall{
     padding: 5px;
@@ -405,9 +422,8 @@ form input,form button,textarea{
     width: 20%;
     position: absolute;
     bottom: 0;
-    display: none;
-    /* opacity: 1; */
-    /* visibility: hidden; */
+    opacity: 0;
+    transition: all 600ms ease;
 }
 #hide-last{
     right: 2.95rem;
